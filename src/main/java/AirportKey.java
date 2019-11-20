@@ -7,26 +7,19 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 public class AirportKey implements WritableComparable<AirportKey> {
-    private Text airoportName;
-    private IntWritable num;
+    private Text Day_Of_Week;
+    private int AirPortID;
 
     public AirportKey() {
-        this.airoportName = new Text();
-        this.num = new IntWritable();
+        this.Day_Of_Week = new Text();
+        this.AirPortID = 0;
     }
 
     public AirportKey(String value, int num) {
-        this.airoportName = new Text(value);
-        this.num = new IntWritable(num);
+        this.Day_Of_Week = new Text(value);
+        this.AirPortID = num;
     }
 
-    public int compareTo(AirportKey airoportKey) {
-        int res  = airoportName.compareTo(airoportKey.airoportName);
-        if (res == 0) {
-            return this.num.compareTo(airoportKey.num);
-        }
-        return res;
-    }
 
 
     public void write(DataOutput dataOutput) throws IOException {
@@ -42,5 +35,9 @@ public class AirportKey implements WritableComparable<AirportKey> {
 
     public Text getAiroportName() {
         return airoportName;
+    }
+
+    public int compareTo(AirportKey airportKey) {
+        return 0;
     }
 }

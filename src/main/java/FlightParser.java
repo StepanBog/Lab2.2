@@ -18,7 +18,7 @@ public class FlightParser {
         }
     }
 
-    public String getFlightID() {
+    public String getAirPortID() {
         return AirPortID;
     }
 
