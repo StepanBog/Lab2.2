@@ -12,17 +12,14 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class Lab2{
     public static void main(String[] args) throws Exception {
-        if (args.length != 3) {
-            System.err.println("Usage: WordCountApp <input path> <output path>");
-            System.exit(-1);
-        }
         Job job = Job.getInstance();
         Configuration conf = new Configuration();
         job.setJarByClass(Lab2.class);
         job.setJobName("Lab2");
-        MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class,AirportMapper.class);
-        FileOutputFormat.setOutputPath(job, new Path(args[2]));
+        MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class,FlightMapper.class);
+        FileOutputFormat.setOutputPath(job, new Path(args[1]));
         Path outputPath = new Path(args[2]);
+
         job.setPartitionerClass(AirportPartitioner.class);
         job.setGroupingComparatorClass(AirportComparator.class);
         job.setReducerClass(AirportReducer.class);
