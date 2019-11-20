@@ -1,6 +1,6 @@
 
 public class FlightParser {
-    private static int DAYOFWEEK = ;
+    private static int DAYOFWEEK = 4;
     private String AirPortID;
     private long cancelled = 0;
     private String DW = "";
@@ -24,5 +24,8 @@ public class FlightParser {
 
     public long getCancelled() {
         return cancelled;
+    }
+    public String getDW(){
+        return DW;
     }
 }
