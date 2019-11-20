@@ -20,7 +20,6 @@ public class AirportKey implements WritableComparable<AirportKey> {
         this.num = new IntWritable(num);
     }
 
-    @Override
     public int compareTo(AirportKey airoportKey) {
         int res  = airoportName.compareTo(airoportKey.airoportName);
         if (res == 0) {
@@ -29,13 +28,13 @@ public class AirportKey implements WritableComparable<AirportKey> {
         return res;
     }
 
-    @Override
+
     public void write(DataOutput dataOutput) throws IOException {
         airoportName.write(dataOutput);
         num.write(dataOutput);
     }
 
-    @Override
+
     public void readFields(DataInput dataInput) throws IOException {
         airoportName.readFields(dataInput);
         num.readFields(dataInput);
