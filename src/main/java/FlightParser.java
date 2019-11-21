@@ -8,8 +8,8 @@ public class FlightParser {
 
     public FlightParser(String str) {
         String[] words = str.split(STR_SPLIT);
-        AirPortID = words[ID];
-            DayOFWEEK = Integer.parseInt((words[DOW].replace("\"","")));
+        AirPortID = words[ID].replace("\"","");
+        DayOFWEEK = Integer.parseInt(words[DOW].replace("\"",""));
     }
 
     public String getAirPortID() {

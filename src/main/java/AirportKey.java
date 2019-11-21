@@ -40,7 +40,7 @@ public class AirportKey implements WritableComparable<AirportKey> {
         num.readFields(dataInput);
     }
 
-    public Text getAiroportName() {
+    public Text getDayOFWeek() {
         return DayOFWeek;
     }
 }

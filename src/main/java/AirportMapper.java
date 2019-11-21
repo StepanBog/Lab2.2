@@ -14,6 +14,6 @@ public class AirportMapper extends Mapper<LongWritable, Text, AirportKey, Text> 
         }
         AirportParser airoportParser = new AirportParser(value.toString());
 
-        context.write(new AirportKey(Integer.toString(airoportParser.getDayOFWeek()), 0), new Text(Integer.toString(airoportParser.getCancelled())));
+        context.write(new AirportKey(airoportParser.getDayOFWeek(), 0), new Text(Integer.toString(airoportParser.getCancelled())));
     }
 }
