@@ -13,11 +13,6 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirportKey, Text> {
             return;
         }
         FlightParser flightParser = new FlightParser(value.toString());
-
-        long delTime = flightParser.getDelayTime();
-
-        if (delTime >  0) {
-            context.write(new AirportKey(flightParser.getDayOFWeek(), 1), new Text(flightParser.getAirPortID()));
-        }
+        context.write(new AirportKey(flightParser.getDayOFWeek(), 1), new Text(flightParser.getAirPortID()));
     }
 }

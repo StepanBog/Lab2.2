@@ -15,12 +15,11 @@ public class AirportKey implements WritableComparable<AirportKey> {
         this.num = new IntWritable();
     }
 
-    public AirportKey(String value, int num) {
-        this.DayOFWeek = new Text(value);
+    public AirportKey(int value, int num) {
+        this.DayOFWeek = new Text(Integer.toString(value));
         this.num = new IntWritable(num);
     }
 
-    @Override
     public int compareTo(AirportKey airoportKey) {
         int res  = DayOFWeek.compareTo(airoportKey.DayOFWeek);
         if (res == 0) {
@@ -29,13 +28,13 @@ public class AirportKey implements WritableComparable<AirportKey> {
         return res;
     }
 
-    @Override
+
     public void write(DataOutput dataOutput) throws IOException {
         DayOFWeek.write(dataOutput);
         num.write(dataOutput);
     }
 
-    @Override
+
     public void readFields(DataInput dataInput) throws IOException {
         DayOFWeek.readFields(dataInput);
         num.readFields(dataInput);
