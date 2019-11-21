@@ -1,22 +1,22 @@
 public class AirportParser {
-    private String AirPortID;
+    private String DayOFWeek;
     private int cancelled ;
-    private static int ID = 11;
+    private static int DOW = 4;
     private static int CANCELLED = 19;
     private static String STR_SPLIT = ",";
 
 
-    public FlightParser(String str) {
+    public AirportParser(String str) {
         String[] words = str.split(STR_SPLIT);
-        AirPortID = words[ID];
+        DayOFWeek = words[DOW];
         cancelled = Integer.parseInt((words[CANCELLED].replace("\"","")));
     }
 
-    public String getAirPortID() {
-        return AirPortID;
+    public String getDayOFWeek() {
+        return DayOFWeek;
     }
 
-    public int getDayOFWeek() {
+    public int getCancelled() {
         return cancelled;
     }
 }
