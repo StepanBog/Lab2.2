@@ -1,24 +1,22 @@
 public class FlightParser {
-    private String flightID;
-    private long delayTime = 0;
-    private static int FLIGHT = 14;
-    private static int DELAYTIME = 18;
+    private String AirPortID;
+    private int cancelled ;
+    private static int ID = 14;
+    private static int CANCELLED = 18;
     private static String STR_SPLIT = ",";
 
 
     public FlightParser(String str) {
         String[] words = str.split(STR_SPLIT);
-        flightID = words[FLIGHT];
-        if (!words[DELAYTIME].isEmpty()) {
-            delayTime = (long)Double.parseDouble((words[DELAYTIME].replace("\"","")));
-        }
+        AirPortID = words[ID];
+            cancelled = Integer.parseInt((words[CANCELLED].replace("\"","")));
     }
 
-    public String getFlightID() {
-        return flightID;
+    public String getAirPortID() {
+        return AirPortID;
     }
 
-    public long getDelayTime() {
-        return delayTime;
+    public int getDayOFWeek() {
+        return cancelled;
     }
 }
