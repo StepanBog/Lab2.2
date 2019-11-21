@@ -13,7 +13,7 @@ public class AirportMapper extends Mapper<LongWritable, Text, AirportKey, Text> 
             return;
         }
         AirportParser airoportParser = new AirportParser(value.toString());
-
-        context.write(new AirportKey(airoportParser.getDayOFWeek(), 0), new Text(Integer.toString(airoportParser.getCancelled())));
+        if (airoportParser.getCancelled() > 0)
+            context.write(new AirportKey(airoportParser.getDayOFWeek(), 0), new Text(Integer.toString(airoportParser.getCancelled())));
     }
 }
