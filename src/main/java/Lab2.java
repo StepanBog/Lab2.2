@@ -15,7 +15,7 @@ public class Lab2{
         Job job = Job.getInstance();
         Configuration conf = new Configuration();
         job.setJarByClass(Lab2.class);
-        job.setJobName("Lab2");
+        job.setJobName("Lab2.2");
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class,AirportMapper.class);
         MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class,FlightMapper.class);
         FileOutputFormat.setOutputPath(job, new Path(args[2]));

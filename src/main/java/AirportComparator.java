@@ -13,6 +13,6 @@ public class AirportComparator extends WritableComparator {
     public int compare(WritableComparable a, WritableComparable b) {
         AirportKey a1 = (AirportKey)a;
         AirportKey b1 = (AirportKey)b;
-        return a1.getDay_Of_Week().compareTo(b1.getDay_Of_Week());
+        return a1.getAiroportName().compareTo(b1.getAiroportName());
     }
 }

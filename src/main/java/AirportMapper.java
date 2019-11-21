@@ -9,15 +9,11 @@ import java.io.IOException;
 
 public class AirportMapper extends Mapper<LongWritable, Text, AirportKey, Text> {
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
-        if (key.get()  == 0) {
+        if (key.get() == 0) {
             return;
         }
-        FlightParser flightParser = new FlightParser(value.toString());
+        AirportParser airoportParser = new AirportParser(value.toString());
 
-        long cancelledCount = flightParser.getCancelled();
-
-        if (cancelledCount >  0) {
-            context.write(new AirportKey(flightParser.getDW(), 0), new Text(flightParser.getAirPortID()));
-        }
+        context.write(new AirportKey(airoportParser.getAiroportID(), 0), new Text(airoportParser.getAiroporName()));
     }
 }
