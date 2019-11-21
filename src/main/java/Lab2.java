@@ -17,9 +17,9 @@ public class Lab2{
         job.setJarByClass(Lab2.class);
         job.setJobName("Lab2");
         MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class,AirportMapper.class);
-        MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class,FlightMapper.class);
-        FileOutputFormat.setOutputPath(job, new Path(args[1]));
-        Path outputPath = new Path(args[1]);
+        MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class,FlightMapper.class);
+        FileOutputFormat.setOutputPath(job, new Path(args[2]));
+        Path outputPath = new Path(args[2]);
 
         job.setPartitionerClass(AirportPartitioner.class);
         job.setGroupingComparatorClass(AirportComparator.class);
