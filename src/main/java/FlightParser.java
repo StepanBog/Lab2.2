@@ -11,8 +11,12 @@ public class FlightParser {
 
     public FlightParser(String str) {
         String[] words = str.split(STR_SPLIT);
-        AirPortID = words[FLIGHT];
-        DW = words[DAYOFWEEK];
+        if (!words[FLIGHT].isEmpty()) {
+            AirPortID = (words[FLIGHT].replace("\"",""));
+        }
+        if (!words[DAYOFWEEK].isEmpty()) {
+            DW= (words[DAYOFWEEK].replace("\"",""));
+        }
         if (!words[CANCELLED].isEmpty()) {
             cancelled = (long)Double.parseDouble((words[CANCELLED].replace("\"","")));
         }
@@ -21,7 +25,6 @@ public class FlightParser {
     public String getAirPortID() {
         return AirPortID;
     }
-
     public long getCancelled() {
         return cancelled;
     }
