@@ -10,7 +10,7 @@ public class AirportReducer extends Reducer <AirportKey, Text,Text, Text> {
         String airportName = it.next().toString();
         String Time = "";
         while (it.hasNext()) {
-            Time += it.next().toString();
+            Time += it.next().toString() + " ";
 
         }
         context.write(new Text(airportName), new Text(Time));
