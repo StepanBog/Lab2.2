@@ -25,7 +25,7 @@ public class AirportReducer extends Reducer <AirportKey, Text,Text, Text>
             count++;
             middleTime += time;*/
         }
-        context.write(new Text(str1 + "///"), new Text(str));
+        context.write(new Text(str1 + "/"), new Text(str));
       //  context.write(new Text(airportName), new Text("Average time = " + middleTime + " Max time = " + maxTime + " Min time = " + minTime));
 
     }
