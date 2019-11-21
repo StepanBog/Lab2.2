@@ -4,7 +4,7 @@ public class FlightParser {
     private String AirPortID;
     private long cancelled = 0;
     private String DW = "";
-    private static int FLIGHT = 10;
+    private static int FLIGHT = 11;
     private static int CANCELLED = 19;
     private static String STR_SPLIT = ",";
 
