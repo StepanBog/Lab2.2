@@ -16,7 +16,8 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirportKey, Text> {
 
         long cancelledCount = flightParser.getCancelled();
 
-        context.write(new AirportKey(flightParser.getDW(), 1), new Text(Long.toString(cancelledCount)));
-
+        if (cancelledCount >  0) {
+            context.write(new AirportKey(flightParser.getDW(), 1), new Text(Long.toString(cancelledCount)));
+        }
     }
 }
