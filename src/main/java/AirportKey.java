@@ -7,22 +7,22 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 public class AirportKey implements WritableComparable<AirportKey> {
-    private Text airoportName;
+    private Text DayOFWeek;
     private IntWritable num;
 
     public AirportKey() {
-        this.airoportName = new Text();
+        this.DayOFWeek = new Text();
         this.num = new IntWritable();
     }
 
     public AirportKey(String value, int num) {
-        this.airoportName = new Text(value);
+        this.DayOFWeek = new Text(value);
         this.num = new IntWritable(num);
     }
 
     @Override
     public int compareTo(AirportKey airoportKey) {
-        int res  = airoportName.compareTo(airoportKey.airoportName);
+        int res  = DayOFWeek.compareTo(airoportKey.DayOFWeek);
         if (res == 0) {
             return this.num.compareTo(airoportKey.num);
         }
@@ -31,17 +31,17 @@ public class AirportKey implements WritableComparable<AirportKey> {
 
     @Override
     public void write(DataOutput dataOutput) throws IOException {
-        airoportName.write(dataOutput);
+        DayOFWeek.write(dataOutput);
         num.write(dataOutput);
     }
 
     @Override
     public void readFields(DataInput dataInput) throws IOException {
-        airoportName.readFields(dataInput);
+        DayOFWeek.readFields(dataInput);
         num.readFields(dataInput);
     }
 
     public Text getAiroportName() {
-        return airoportName;
+        return DayOFWeek;
     }
 }
