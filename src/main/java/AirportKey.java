@@ -9,20 +9,20 @@ import java.io.IOException;
 public class AirportKey implements WritableComparable<AirportKey> {
 
     private IntWritable num;
-    private Text AirportID;
+    private Text Day_Of_Week;
 
     public AirportKey() {
-        this.AirportID = new Text();
+        this.Day_Of_Week = new Text();
         this.num = new IntWritable();
     }
 
     public AirportKey(String value, int num) {
-        this.AirportID = new Text(value);
+        this.Day_Of_Week = new Text(value);
         this.num = new IntWritable(num);
     }
 
     public int compareTo(AirportKey airoportKey) {
-        int res  = AirportID.compareTo(airoportKey.AirportID);
+        int res  = Day_Of_Week.compareTo(airoportKey.Day_Of_Week);
         if (res == 0) {
             return this.num.compareTo(airoportKey.num);
         }
@@ -31,17 +31,17 @@ public class AirportKey implements WritableComparable<AirportKey> {
 
 
     public void write(DataOutput dataOutput) throws IOException {
-        AirportID.write(dataOutput);
+        Day_Of_Week.write(dataOutput);
         num.write(dataOutput);
     }
 
 
     public void readFields(DataInput dataInput) throws IOException {
-        AirportID.readFields(dataInput);
+        Day_Of_Week.readFields(dataInput);
         num.readFields(dataInput);
     }
 
-    public Text getAirportID() {
-        return AirportID;
+    public Text getDay_Of_Week() {
+        return Day_Of_Week;
     }
 }
