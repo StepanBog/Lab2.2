@@ -1,8 +1,8 @@
 public class FlightParser {
     private String AirPortID;
     private int cancelled ;
-    private static int ID = 14;
-    private static int CANCELLED = 18;
+    private static int ID = 11;
+    private static int CANCELLED = 19;
     private static String STR_SPLIT = ",";
 
 
