@@ -19,4 +19,4 @@ public class AirportParser {
     public String getAiroporName() {
         return airporName;
     }
-}
+}  
