@@ -22,7 +22,7 @@ public class AirportKey implements WritableComparable<AirportKey> {
     }
 
     public int compareTo(AirportKey airoportKey) {
-        int res  = AirportID.compareTo(airoportKey.AirportID;
+        int res  = AirportID.compareTo(airoportKey.AirportID);
         if (res == 0) {
             return this.num.compareTo(airoportKey.num);
         }
